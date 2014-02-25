@@ -515,6 +515,15 @@ namespace TrotiNet
         }
 
         /// <summary>
+        /// Send a HTTP response over the socket
+        /// possible values from: http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+        /// </summary>
+        public void SendStatus(int httpStatusCode, string httpStatusName)
+        {
+            SendHttpError(String.Format("{0} {1}", httpStatusCode, httpStatusName));
+        }
+
+        /// <summary>
         /// Send a HTTP 302 redirection over the socket
         /// </summary>
         public void Send302()
